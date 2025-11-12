@@ -27,3 +27,27 @@ module "cloudsql" {
 
   credentials_file = var.credentials_file
 }
+
+##############################################
+# MÓDULO CLOUD STORAGE
+##############################################
+module "storage" {  
+  source     = "./modules/storage"
+  project_id = var.project_id
+  region     = var.region
+  users      = ["alejandro.grna@gmail.com", "margarethpino24@gmail.com"]
+}
+
+##############################################
+# MÓDULO CLOUD FUNCTIONS - download_kaggle_to_gcs
+##############################################
+module "elt_function" {
+  source        = "./modules/compute/cloud_function"
+  project_id    = var.project_id
+  region        = var.region
+  bucket_name   = module.storage.bucket_bronze
+  function_name = "download_kaggle_to_gcs"
+  source_dir    = "../elt_kaggle_function"
+  kaggle_user   = var.kaggle_user
+  kaggle_key    = var.kaggle_key
+}

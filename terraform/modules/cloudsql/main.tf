@@ -3,6 +3,7 @@ resource "google_sql_database_instance" "db_instance" {
   project          = var.project_id
   region           = var.region
   database_version = "POSTGRES_15"
+  deletion_protection = false
 
   settings {
     tier              = "db-f1-micro"

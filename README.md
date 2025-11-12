@@ -24,6 +24,49 @@ El modelo relacional representa las entidades principales de la universidad y su
 ![MER Universidad](./static/mer_univeridad.png)
 
 
+````text
+          ┌─────────────────────────────┐
+          │      Cloud SQL (Postgres)   │
+          │  - Base de datos student_data│
+          │  - Usuarios: admin, app_user1, app_user2 │
+          └─────────────┬──────────────┘
+                        │ (extract)
+                        ▼
+          ┌─────────────────────────────┐
+          │    Cloud Function ELT       │
+          │  - download_kaggle_to_gcs  │
+          │  - Python runtime          │
+          │  - Usa credenciales Kaggle │
+          │  - Despliegue con Terraform│
+          └───────┬───────────┬────────┘
+                  │           │
+                  │           │
+                  ▼           ▼
+      ┌─────────────────┐   ┌─────────────────┐
+      │  Bucket Bronze  │   │  Bucket Silver  │
+      │  - Ficheros raw │   │  - Datos DB     │
+      │  - Versioning   │   │  - Versioning   │
+      │  - IAM: Viewer  │   │  - IAM: Viewer  │
+      └────────┬────────┘   └────────┬────────┘
+               │                     │
+               ▼                     ▼
+          ┌─────────────────────────────┐
+          │       Bucket Gold           │
+          │  - Datos limpios / finales  │
+          │  - Acceso controlado        │
+          └─────────────┬──────────────┘
+                        │
+                        ▼
+                 ┌────────────┐
+                 │ BigQuery   │
+                 │ - Dataset  │
+                 │ - Tablas   │
+                 └────────────┘
+```
+
+medallion arquitectura
+
+
 ## 4. Objetivo del repositorio
 Este repositorio contiene la **infraestructura como código (IaC)** en **Google Cloud Platform** usando **Terraform**, para desplegar y gestionar los recursos necesarios para el proyecto de analítica predictiva:
 
@@ -49,25 +92,27 @@ ironhack_proyecto_universitaria/
 │       ├─ compute/
 │       │   ├─ main.tf
 │       │   ├─ variables.tf
-│       │   └─ outputs.tf
+│       │   ├─ outputs.tf
+│       │   └─ cloud_function/
+│       │       ├─ main.tf
+│       │       ├─ variables.tf
+│       │       └─ outputs.tf
 │       ├─ bigquery/
 │       │   ├─ main.tf
 │       │   ├─ variables.tf
 │       │   └─ outputs.tf
 │       ├─ cloudsql/
-│       │   └─ sql/
-│       │   │  └─ create_tables.sql
 │       │   ├─ main.tf
 │       │   ├─ variables.tf
 │       │   └─ outputs.tf
+│       │   └─ sql/
+│       │       └─ create_tables.sql
 │       └─ iam/
 │           ├─ main.tf
 │           ├─ variables.tf
 │           └─ outputs.tf
-├─ PROJECT_SETUP.md
 ├─ README.md
-└─ scripts/
-.env
+└─ .env
 ```
 
 ## 6. Requisitos

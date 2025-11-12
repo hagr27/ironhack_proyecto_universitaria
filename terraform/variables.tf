@@ -68,3 +68,21 @@ variable "db_password2" {
   type        = string
   sensitive   = true
 }
+
+# variables.tf
+variable "source_dir" {
+  description = "Ruta local donde se encuentra el código de la Cloud Function"
+  type        = string
+}
+
+# kaggle
+variable "kaggle_user" {
+  description = "Usuario de Kaggle para autenticación"
+  type        = string
+}
+
+variable "kaggle_key" {
+  description = "API key de Kaggle para autenticación"
+  type        = string
+  sensitive   = true
+}

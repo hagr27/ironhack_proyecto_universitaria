@@ -26,3 +26,22 @@ output "cloudsql_users" {
   description = "Usuarios creados en la base de datos"
   value       = module.cloudsql.db_users
 }
+
+##############################################
+# SALIDAS DEL MÓDULO CLOUD STORAGE
+##############################################
+
+output "bronze_bucket" {
+  description = "Bucket Bronze"
+  value       = module.storage.bucket_bronze
+}
+
+output "silver_bucket" {
+  description = "Bucket Silver"
+  value       = module.storage.bucket_silver
+}
+
+output "gold_bucket" {
+  description = "Bucket Gold"
+  value       = module.storage.bucket_gold
+}
