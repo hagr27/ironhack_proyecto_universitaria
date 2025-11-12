@@ -1,3 +1,11 @@
+# Ignorar archivo de variables sensibles
+.env
+credentials_gcp.json
+terraform.tfvars
+terraform/terraform.*
+terraform/.terraform*
+
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[codz]
