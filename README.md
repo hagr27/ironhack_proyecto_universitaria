@@ -12,10 +12,19 @@ La universidad enfrenta un **porcentaje relevante de abandono estudiantil**, esp
 - Optimizar procesos de reclutamiento.
 - Fortalecer la propuesta educativa.
 
-## 2. Usuario principal
-- Gestión Académica y Bienestar Estudiantil: responsables del acompañamiento y soporte a los estudiantes.
+> **Usuario principal**
+> - *Gestión Académica y Bienestar Estudiantil: responsables del acompañamiento y soporte a los estudiantes.*
 
-## 3. Objetivo del repositorio
+## 3. Arquitectura del proyecto
+
+### 3.1. Modelo Relacional
+
+El modelo relacional representa las entidades principales de la universidad y sus relaciones, permitiendo almacenar y gestionar la información académica de manera estructurada. Este modelo se centra en estudiantes, profesores, cursos, departamentos y horarios, y soporta análisis predictivo sobre deserción estudiantil.
+
+![MER Universidad](./static/mer_univeridad.png)
+
+
+## 4. Objetivo del repositorio
 Este repositorio contiene la **infraestructura como código (IaC)** en **Google Cloud Platform** usando **Terraform**, para desplegar y gestionar los recursos necesarios para el proyecto de analítica predictiva:
 
 - Buckets de Cloud Storage para almacenamiento de datos.
@@ -23,7 +32,7 @@ Este repositorio contiene la **infraestructura como código (IaC)** en **Google 
 - IAM roles y permisos para acceso seguro a los datos.
 - Cloud SQL para almacenamiento relacional de datos académicos.
 
-## 4. Estructura del repositorio
+## 5. Estructura del repositorio
 
 ```text
 ironhack_proyecto_universitaria/
@@ -61,26 +70,26 @@ ironhack_proyecto_universitaria/
 .env
 ```
 
-## 5. Requisitos
+## 6. Requisitos
 
 - Cuenta de Google Cloud Platform con permisos de creación de proyectos y recursos.
 - Archivo de credenciales JSON para autenticación.
 - Terraform 1.5 o superior instalado localmente.
 
-## 6. Configuración inicial
-- **6.1 Clonar el repositorio**
+## 7. Configuración inicial
+- **7.1 Clonar el repositorio**
 
 ```bash
 git clone https://github.com/TU_USUARIO/ironhack_proyecto_universitaria.git
 cd ironhack_proyecto_universitaria
 ```
 
-**6.2 Crear un proyecto en GCP**
+**7.2 Crear un proyecto en GCP**
 
 1. Ir a Google Cloud Console → Manage Resources → Create Project.
 2. Seleccionar “No organization” o dejar el campo de organización vacío.
 
-- **6.3 Crear una cuenta de servicio**
+- **7.3 Crear una cuenta de servicio**
 
 1. Selecciona tu proyecto en GCP.
 2. Ve a IAM & Admin → Service Accounts → Crear cuenta de servicio.
@@ -92,7 +101,7 @@ cd ironhack_proyecto_universitaria
 
 5. Haz clic en Crear y continuar, luego en Listo.
 
-- **6.4 Configurar variables en .env y terraform.tfvars**
+- **7.4 Configurar variables en .env y terraform.tfvars**
 
 # Activar variables de entorno
 
@@ -111,7 +120,7 @@ db_instance_name   = "universitaria-sql"
 db_name            = "student_data"
 ```
 
-- **6.5 Inicializar y aplicar Terraform**
+- **7.5 Inicializar y aplicar Terraform**
 ```bash
 cd terraform
 terraform init
@@ -119,7 +128,7 @@ terraform plan
 terraform apply
 ```
 
-- **6.6 Eliminar recursos**
+- **7.6 Eliminar recursos**
 ```bash
 terraform destroy
 ```
