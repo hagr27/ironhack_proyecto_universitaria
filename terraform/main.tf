@@ -51,3 +51,12 @@ module "elt_function" {
   kaggle_user   = var.kaggle_user
   kaggle_key    = var.kaggle_key
 }
+
+module "iam" {
+  source          = "./modules/iam"
+  users           = ["alejandro.grna@gmail.com", "margarethpino24@gmail.com"]
+  bronze_bucket   = module.storage.bucket_bronze
+  silver_bucket   = module.storage.bucket_silver
+  gold_bucket     = module.storage.bucket_gold
+  notebook_bucket = module.storage.bucket_gold
+}

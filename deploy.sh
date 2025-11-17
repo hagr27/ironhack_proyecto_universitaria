@@ -6,7 +6,7 @@
 set -e  # Detener ejecución si ocurre algún error
 
 # Ruta de la función
-FUNCTION_DIR="../elt_kaggle_function"
+FUNCTION_DIR="./elt_kaggle_function"
 ZIP_FILE="function.zip"
 
 echo "Comprimendo la función en ${ZIP_FILE}..."

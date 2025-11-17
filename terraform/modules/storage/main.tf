@@ -42,17 +42,26 @@ resource "google_storage_bucket" "gold" {
   }
 }
 
-# IAM para usuarios que puedan acceder a Bronze y Silver
+# IAM para usuarios que puedan acceder y modificar Bronze
 resource "google_storage_bucket_iam_member" "bronze_users" {
   for_each = toset(var.users)
   bucket   = google_storage_bucket.bronze.name
-  role     = "roles/storage.objectViewer"
+  role     = "roles/storage.objectAdmin"  # lectura + escritura
   member   = "user:${each.value}"
 }
 
+# IAM para usuarios que puedan acceder y modificar Silver
 resource "google_storage_bucket_iam_member" "silver_users" {
   for_each = toset(var.users)
   bucket   = google_storage_bucket.silver.name
-  role     = "roles/storage.objectViewer"
+  role     = "roles/storage.objectAdmin"  # lectura + escritura
+  member   = "user:${each.value}"
+}
+
+# IAM para usuarios que puedan acceder a Gold (solo lectura)
+resource "google_storage_bucket_iam_member" "gold_users" {
+  for_each = toset(var.users)
+  bucket   = google_storage_bucket.gold.name
+  role     = "roles/storage.objectViewer"  # solo lectura
   member   = "user:${each.value}"
 }
