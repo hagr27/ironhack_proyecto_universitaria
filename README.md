@@ -1,6 +1,15 @@
 # Ironhack Proyecto Universitaria
 
 ## 1. Problema u oportunidad detectada
+
+<a href="./static/docs/Prevención_de_la_deserción_estudiantil.pdf" target="_blank">
+Ver PDF: Modelo de negocio
+</a>
+
+<a href="./static/docs/Prevención_de_la_deserción_estudiantil.pdf" target="_blank">
+Ver PDF: Presentación
+</a>
+
 La universidad enfrenta un **porcentaje relevante de abandono estudiantil**, especialmente en los primeros años de carrera. Este fenómeno impacta negativamente:
 
 - **Estudiantes:** interrupción de la formación, menor empleabilidad.
@@ -15,15 +24,17 @@ La universidad enfrenta un **porcentaje relevante de abandono estudiantil**, esp
 > **Usuario principal**
 > - *Gestión Académica y Bienestar Estudiantil: responsables del acompañamiento y soporte a los estudiantes.*
 
+
 ## 3. Arquitectura del proyecto
 
-![Arquitectura GCP](./static/arq_gcp.jpeg)
+![Arquitectura GCP](./static/images/arq_gcp.jpeg)
 
 ### 3.1. Modelo Relacional
 
 El modelo relacional representa las entidades principales de la universidad y sus relaciones, permitiendo almacenar y gestionar la información académica de manera estructurada. Este modelo se centra en estudiantes, profesores, cursos, departamentos y horarios, y soporta análisis predictivo sobre deserción estudiantil.
 
-![MER Universidad](./static/mer_univeridad.png)
+![MER Universidad](./static/images/mer_univeridad.png)
+![MER Cloud](./static/images/modelo_relacional_cloudsql.png)
 
 ```text
           ┌─────────────────────────────┐
@@ -92,6 +103,8 @@ ironhack_proyecto_universitaria/
 │   │       ├─ __init__.py
 │   │       ├─ main.py
 │   │       └─ utils.py
+│   ├─ powerbi/
+│   │   └─ Dashboard - Éxito Académico.pbix
 │   └─ notebooks/
 │       └─ project_student.ipynb
 │
