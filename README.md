@@ -33,8 +33,8 @@ El modelo relacional representa las entidades principales de la universidad y su
           └─────────────┬──────────────┘
                         │ (extract)
                         ▼
-          ┌─────────────────────────────┐
-          │    Cloud Function ELT       │
+          ┌────────────────────────────┐
+          │    Cloud Function ELT      │
           │  - download_kaggle_to_gcs  │
           │  - Python runtime          │
           │  - Usa credenciales Kaggle │
@@ -51,10 +51,10 @@ El modelo relacional representa las entidades principales de la universidad y su
       └────────┬────────┘   └────────┬────────┘
                │                     │
                ▼                     ▼
-          ┌─────────────────────────────┐
-          │       Bucket Gold           │
-          │  - Datos limpios / finales  │
-          │  - Acceso controlado        │
+          ┌────────────────────────────┐
+          │       Bucket Gold          │
+          │  - Datos limpios / finales │
+          │  - Acceso controlado       │
           └─────────────┬──────────────┘
                         │
                         ▼
@@ -191,9 +191,8 @@ deploy.sh
 terraform destroy
 ```
 
-st.markdown("---")  # Línea separadora
+---
 
-st.markdown("""
 **Equipo de Proyecto:**
 - Margaret Pino
 - Luis Guevara
@@ -201,4 +200,3 @@ st.markdown("""
 
 **Docente:**  
 - Xisca Sorell
-""")
