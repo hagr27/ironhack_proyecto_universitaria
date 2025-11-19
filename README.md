@@ -2,13 +2,12 @@
 
 ## 1. Problema u oportunidad detectada
 
-<a href="./static/docs/Prevención_de_la_deserción_estudiantil.pdf" target="_blank">
-Ver PDF: Modelo de negocio
+**-**<a href="./static/docs/Prevención_de_la_deserción_estudiantil.pdf" target="_blank">
+**Ver PDF: Modelo de negocio**
 </a>
 
-
-<a href="./static/docs/Prevención_de_la_deserción_estudiantil.pdf" target="_blank">
-Ver PDF: Presentación
+**-**<a href="./static/docs/Prevención_de_la_deserción_estudiantil.pdf" target="_blank">
+**Ver PDF: Presentación**
 </a>
 
 La universidad enfrenta un **porcentaje relevante de abandono estudiantil**, especialmente en los primeros años de carrera. Este fenómeno impacta negativamente:
