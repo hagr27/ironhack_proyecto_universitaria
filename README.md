@@ -17,14 +17,15 @@ La universidad enfrenta un **porcentaje relevante de abandono estudiantil**, esp
 
 ## 3. Arquitectura del proyecto
 
+![Arquitectura GCP](./static/arq_gcp.jpeg)
+
 ### 3.1. Modelo Relacional
 
 El modelo relacional representa las entidades principales de la universidad y sus relaciones, permitiendo almacenar y gestionar la información académica de manera estructurada. Este modelo se centra en estudiantes, profesores, cursos, departamentos y horarios, y soporta análisis predictivo sobre deserción estudiantil.
 
 ![MER Universidad](./static/mer_univeridad.png)
 
-
-````text
+```text
           ┌─────────────────────────────┐
           │      Cloud SQL (Postgres)   │
           │  - Base de datos student_data│
@@ -63,8 +64,6 @@ El modelo relacional representa las entidades principales de la universidad y su
                  │ - Tablas   │
                  └────────────┘
 ```
-
-medallion arquitectura
 
 
 ## 4. Objetivo del repositorio
@@ -191,3 +190,15 @@ deploy.sh
 ```bash
 terraform destroy
 ```
+
+st.markdown("---")  # Línea separadora
+
+st.markdown("""
+**Equipo de Proyecto:**
+- Margaret Pino
+- Luis Guevara
+- Alejandro Gerena
+
+**Docente:**  
+- Xisca Sorell
+""")
