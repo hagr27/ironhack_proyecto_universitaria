@@ -79,6 +79,23 @@ Este repositorio contiene la **infraestructura como código (IaC)** en **Google 
 
 ```text
 ironhack_proyecto_universitaria/
+│
+├─ elt_kaggle_function/
+│   ├─ function.zip
+│   ├─ main.py
+│   └─ requirements.py
+│
+├─ project/
+│   ├─ app/
+│   │   ├─ model/
+│   │   │   └─ modelo_entrenado.sav
+│   │   └─ src/
+│   │       ├─ __init__.py
+│   │       ├─ main.py
+│   │       └─ utils.py
+│   └─ notebooks/
+│       └─ project_student.ipynb
+│
 ├─ terraform/
 │   ├─ main.tf
 │   ├─ variables.tf
@@ -97,10 +114,6 @@ ironhack_proyecto_universitaria/
 │       │       ├─ main.tf
 │       │       ├─ variables.tf
 │       │       └─ outputs.tf
-│       ├─ bigquery/
-│       │   ├─ main.tf
-│       │   ├─ variables.tf
-│       │   └─ outputs.tf
 │       ├─ cloudsql/
 │       │   ├─ main.tf
 │       │   ├─ variables.tf
@@ -111,8 +124,12 @@ ironhack_proyecto_universitaria/
 │           ├─ main.tf
 │           ├─ variables.tf
 │           └─ outputs.tf
-├─ README.md
-└─ .env
+├─ credentials_gcp.json
+├─ .env
+├─ .gitignore
+├─ deploy.sh
+├─ LICENSE
+└─ README.md
 ```
 
 ## 6. Requisitos
@@ -165,12 +182,9 @@ db_instance_name   = "universitaria-sql"
 db_name            = "student_data"
 ```
 
-- **7.5 Inicializar y aplicar Terraform**
+- **7.5 Inicializador de Infraestructura**
 ```bash
-cd terraform
-terraform init
-terraform plan
-terraform apply
+deploy.sh
 ```
 
 - **7.6 Eliminar recursos**
